@@ -16,7 +16,7 @@ public class BatchExampleApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(BatchExampleApplication.class, args);
 
 		JobLauncher jobLauncher = context.getBean(JobLauncher.class);
-		String jobName = args.length > 0 ? args[0] : "";
+		String jobName = System.getenv("JOB_NAME");
 
 		Job selectedJob;
 		if ("sumJob".equalsIgnoreCase(jobName)) {
